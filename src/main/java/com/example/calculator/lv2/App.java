@@ -1,18 +1,10 @@
 package com.example.calculator.lv2;
-
 import java.util.Scanner;
-
-import static java.lang.Integer.parseInt;
 
 public class App {
     public static void main(String[] args) {
         Calculator2 cal = new Calculator2();
-
         Scanner sc = new Scanner(System.in);
-        boolean isOperator = false;
-        String exiting;
-        int firstNumber = 0, lastNumber = 0;
-        int result;
 
         while (true) {
             System.out.println("계산기 실행 !");
@@ -23,21 +15,26 @@ public class App {
             System.out.println("2. 계산기록 확인");
             int mode = Integer.parseInt(sc.nextLine());
 
-
             // 계산하기
             if(mode == 1) {
-                System.out.println("첫 번째 값을 입력하세요");
-                firstNumber = Integer.parseInt(sc.nextLine());
 
+                // 첫 번째 값 입력
+                System.out.println("첫 번째 값을 입력하세요");
+                int firstNumber = Integer.parseInt(sc.nextLine());
+
+                // 양수만 입력
                 while (firstNumber <= 0) {
                     System.out.println("양수를 입력해주세요");
                     System.out.println();
                 }
 
+                // 연산자 입력
                 System.out.println("4개의 연산자 중 선택하여 입력하세요");
                 System.out.println("[+] / [-] / [*] / [/] ");
                 String operator = sc.nextLine();
 
+                // 입력값이 연산자가 아니면 다시 입력 반복
+                boolean isOperator = false;
                 while (!isOperator) {
                     if (operator.equals("+") || operator.equals("-") || operator.equals("*") || operator.equals("/")) {
                         isOperator = true;
@@ -45,19 +42,22 @@ public class App {
                         System.out.println("4개의 연산자 중 선택하여 입력하세요");
                         System.out.println("[+] / [-] / [*] / [/] ");
                         operator = sc.nextLine();
-
                     }
                 }
-                System.out.println("두 번째 값을 입력하세요");
-                lastNumber = Integer.parseInt(sc.nextLine());
 
-                result = cal.calculate(firstNumber, lastNumber, operator);
+                // 두 번째 값 입력
+                System.out.println("두 번째 값을 입력하세요");
+                int lastNumber = Integer.parseInt(sc.nextLine());
+
+                // calculate() 메서드 실행
+                int result = cal.calculate(firstNumber, lastNumber, operator);
                 System.out.println("결과 : " + result);
                 System.out.println("첫 번째 값 : " + firstNumber + " / "+ "두 번째 값 : " + lastNumber);
                 System.out.println();
 
+                // 메서드 실행 후 계속하기 or 끝내기
                 System.out.println("계산을 계속 하시려면 아무 키를 입력하시고, 종료하시려면 'exit' 를 입력하세요");
-                exiting = sc.nextLine();
+                String exiting = sc.nextLine();
                 if(exiting.equals("exit")) {
                     break;
                 }
