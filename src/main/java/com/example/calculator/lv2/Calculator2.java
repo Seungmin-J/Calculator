@@ -6,40 +6,31 @@ import java.util.Scanner;
 public class Calculator2 {
     Scanner scanner = new Scanner(System.in);
     private List<Integer> records = new ArrayList<>();
+    int lastNumber;
 
     public int calculate(int a, int b, String operator) {
-        boolean isZero = true;
         int result = 0;
+        lastNumber = b;
 
-        // 연산자가 나누기 이고 b 의 값이 0 이면 다시 입력
-        if(!operator.equals("/") && b == 0) {
+        // operator 값 확인
             switch (operator) {
                 case "+": result = a+b; break;
                 case "-": result = a-b; break;
                 case "*": result = a*b; break;
-                case "/": result = a/b; break;
-            }
-            records.add(result);
-            return result;
-        }else {
-            while (isZero) {
-                if(b == 0) {
-                    System.out.println("0으로 나눌 수 없습니다. 다른 값을 입력해주세요");
-                    b = Integer.parseInt(scanner.nextLine());
-                }else {
-                    isZero = false;
-                    switch (operator) {
-                        case "+": result = a+b; break;
-                        case "-": result = a-b; break;
-                        case "*": result = a*b; break;
-                        case "/": result = a/b; break;
+                case "/":
+                    // 나누기 연산자일 때 0이거나 음수인지 확인
+                    while (lastNumber <= 0) {
+                        System.out.println("0 혹은 음의 정수로 나눌 수 없습니다. 다른 값을 입력해주세요");
+                        lastNumber = Integer.parseInt(scanner.nextLine());
                     }
+                    result = a / lastNumber;
                     records.add(result);
                     return result;
-                }
+                default:
+                    System.out.println("4개의 연산자중 입력해주세요");
+                    operator = scanner.nextLine();
             }
-        }
-        return result;
+            return result;
     }
 
     public List<Integer> getRecords() {

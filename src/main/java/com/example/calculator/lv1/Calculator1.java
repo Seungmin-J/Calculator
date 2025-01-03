@@ -5,11 +5,14 @@ import java.util.Scanner;
 
 public class Calculator1 {
     public static void main(String[] args) {
-
         // 계산기 실행
         while(true) {
             // 메인메서드에서 실행 LEVEL 1
             List<String> operators= new ArrayList<>();
+            operators.add("+");
+            operators.add("-");
+            operators.add("*");
+            operators.add("/");
             boolean isOperator = false;
             String operator;
 
@@ -37,7 +40,6 @@ public class Calculator1 {
                     isOperator = true;
                 }
             }while (!isOperator);
-
             // 두 번째 값 입력
             System.out.println("두 번째 값을 입력하세요");
             int lastNumber = Integer.parseInt(sc.nextLine());
@@ -63,7 +65,7 @@ public class Calculator1 {
             }
             System.out.println("결과 : " + sum);
             System.out.println("첫 번째 값 : " + firstNumber + " / "+ "두 번째 값 : " + lastNumber);
-
+            System.out.println();
             System.out.println("계산을 계속 하시려면 아무 키를 입력하시고, 종료하시려면 'exit' 를 입력하세요");
             String exiting = sc.nextLine();
             if(exiting.equals("exit")) {
