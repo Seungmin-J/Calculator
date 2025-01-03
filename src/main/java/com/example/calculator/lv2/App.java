@@ -1,6 +1,5 @@
 package com.example.calculator.lv2;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -70,6 +69,7 @@ public class App {
                 System.out.println("2. 기록 삭제하기(가장 먼저 계산된 기록부터)");
 
                 int num = Integer.parseInt(sc.nextLine());
+                // 기록 확인
                 if (num == 1) {
                     if (cal.getRecords().isEmpty()) {
                         System.out.println("계산 기록이 없습니다");
@@ -79,6 +79,7 @@ public class App {
                     for (int i = 0; i < cal.getRecords().size(); i++) {
                         System.out.println(i + 1 + ". " + cal.getRecords().get(i));
                     }
+                    // 기록 삭제
                 } else if (num == 2) {
                     if (cal.getRecords().isEmpty()) {
                         System.out.println("계산 기록이 없습니다");

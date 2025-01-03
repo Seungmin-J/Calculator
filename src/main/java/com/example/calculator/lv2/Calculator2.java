@@ -26,6 +26,7 @@ public class Calculator2 {
                 }
                 result = a / lastNumber;
         }
+        // 결과값 add
         records.add(result);
         return result;
     }
