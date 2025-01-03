@@ -1,6 +1,7 @@
 package com.example.calculator.lv2;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -8,11 +9,7 @@ public class App {
     public static void main(String[] args) {
         Calculator2 cal = new Calculator2();
         Scanner sc = new Scanner(System.in);
-        List<String> operators = new ArrayList<>();
-        operators.add("+");
-        operators.add("-");
-        operators.add("*");
-        operators.add("/");
+        List<String> operators = Arrays.asList("+", "-", "*", "/");
 
         while (true) {
             System.out.println("계산기 실행 !");
