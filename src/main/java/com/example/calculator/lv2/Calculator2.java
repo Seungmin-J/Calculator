@@ -26,9 +26,6 @@ public class Calculator2 {
                     result = a / lastNumber;
                     records.add(result);
                     return result;
-                default:
-                    System.out.println("4개의 연산자중 입력해주세요");
-                    operator = scanner.nextLine();
             }
             return result;
     }
