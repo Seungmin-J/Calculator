@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Calculator2 {
+public class Calculator {
     Scanner scanner = new Scanner(System.in);
     private List<Integer> records = new ArrayList<>();
     int lastNumber;

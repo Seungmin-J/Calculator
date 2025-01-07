@@ -1,10 +1,9 @@
 package com.example.calculator.lv1;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class Calculator1 {
+public class App {
     public static void main(String[] args) {
         // 계산기 실행
         while(true) {
