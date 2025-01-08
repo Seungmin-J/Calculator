@@ -1,26 +1,7 @@
 package com.example.calculator.lv3;
 
 public enum OperatorType {
-    ADD("+") {
-        public int operate(int a, int b) {
-            return a + b;
-        }
-    }, SUBTRACT("-") {
-        public int operate(int a, int b) {
-            return a - b;
-        }
-    }, MULTIPLY("*") {
-        public int operate(int a, int b) {
-            return a * b;
-        }
-    }, DIVIDE("/") {
-        public int operate(int a, int b) {
-            if(b == 0) {
-                throw new ArithmeticException("0으로 나눌 수 없습니다");
-            }
-            return a / b;
-        }
-    };
+    ADD("+") , SUBTRACT("-"), MULTIPLY("*") , DIVIDE("/");
 
     private String operator;
 
@@ -41,5 +22,5 @@ public enum OperatorType {
         return operator;
     }
 
-    public abstract int operate(int a, int b);
+
 }
