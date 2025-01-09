@@ -9,6 +9,7 @@ public enum OperatorType {
         this.operator = operator;
     }
 
+    // 연산자 입력값과 OperatorType 비교 후 일치하는 타입 리턴
     public static OperatorType getOperatorType(String operator) {
         for(OperatorType type : values()) {
             if(type.getOperator().equals(operator)) {

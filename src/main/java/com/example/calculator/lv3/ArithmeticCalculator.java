@@ -3,10 +3,10 @@ package com.example.calculator.lv3;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArithmeticCalculator<T extends Number> {
+public class ArithmeticCalculator {
     private List<Number> records = new ArrayList<>();
 
-    public Double calculate(T a, T b, OperatorType operator) {
+    public <T extends Number> Double calculate(T a, T b, OperatorType operator) {
         Double result;
         switch (operator) {
             case ADD:
@@ -29,6 +29,13 @@ public class ArithmeticCalculator<T extends Number> {
         }
         records.add(result);
         return result;
+    }
+
+    // 입력값보다 큰 기록 확인하는 메서드
+    public List<Number> getGreaterRecordsThanInput(double input) {
+        return records.stream()
+                .filter(record -> record.doubleValue() > input)
+                .toList();
     }
 
     public List<Number> getRecords() {
